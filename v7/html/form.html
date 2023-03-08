@@ -1,0 +1,177 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atualizar Pessoas</title>
+    <link rel="stylesheet" href="_css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script src="js/jquery.form.js"></script>
+    
+   
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</head>
+
+<body class="corpo">
+
+
+    <form id="Formulario" action="index.php?class=ProductForm&method=save" style=" width: 800px; margin-left: 40px;margin-top: 30px;padding: 10px;border-radius: 20px;" class="Form1 bg-light row g-3" method="post" enctype="multipart/form-data">
+        <main>
+
+            <div class="mb-3">
+                <label for="ptd_id" class="form-label">ID do Produto</label>
+                <input type="text" class="form-control" readonly id="ptd_id" name="ptd_id">
+            </div>
+
+            <div class="mb-3">
+                <label for="ptd_name" class="form-label">Nome Produto</label>
+                <input type="text" class="form-control" required id="ptd_name" name="ptd_name" value="{ptd_name}">
+            </div>
+
+            <div class="mb-3">
+
+                <label for="ptd_description" class="form-label">Descrição (máximo 250 caractéres)</label>
+                restam <span class="badge fs-6 spanTXT  text-bg-secondary">250</span>
+                <textarea maxlength="250"  class="form-control contador caracteres" name="ptd_description" id="ptd_description" value="{ptd_description}" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="ptd_tags" class="form-label">TAGS</label>
+                <input type="text" class="form-control" name="ptd_tags" id="ptd_tags" value="{ptd_tags}">
+                <div id="nada" class="form-text fw-bold">
+                    TAGS: Palavras que não constem nos 2 campos anteriores e que gostaria que seu produto fosse encontrado
+                    nas buscas realizadas por palavra-chave. Se mais de 1(uma) separar por vírgula
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ptd_link_alt" class="form-label">Link Alternativo (OPCIONAL)</label>
+                <input type="text" class="form-control" name="ptd_link_alt" id="ptd_link_alt" value="{ptd_link_alt}">
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <label for="ptd_code" class="form-label">Código</label>
+                <input type="text" class="form-control" name="ptd_code" id="ptd_code" value="{ptd_code}">
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <label for="ptd_unit_id" class="form-label">Unidade de Medida</label>
+                <select name="ptd_unit_id" id="ptd_unit_id" class="form-select" >
+
+                   {ptd_unit_id}
+                </select>
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <label for="ptd_brand_id" class="form-label">Marca/Fabricante</label>
+                <select name="ptd_brand_id" id="ptd_brand_id" class="form-select">
+                    {ptd_brand_id}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="ptd_category_id" class="form-label">Categoria</label>
+                <select name="ptd_category_id" id="ptd_category_id" class="form-select">
+                   {ptd_category_id}
+                </select>
+            </div>
+
+            <p class="fs-4">DIMENSÕES DO PRODUTO (CENTÍMETROS):</p>
+
+
+
+            <div class="mb-3 col-md-2">
+                <label for="ptd_height" class="form-label ">Altura (CM):</label>
+                <input type="text" class="form-control" name="ptd_height" id="ptd_height" value="{ptd_height}">
+            </div>
+
+            <div class="mb-3 col-md-2">
+                <label for="ptd_length" class="form-label ">Largura (CM):</label>
+                <input type="text" class="form-control" name="ptd_length" id="ptd_length" value="{ptd_length}">
+            </div>
+
+            <div class="mb-3 col-md-2">
+                <label for="ptd_depth" class="form-label ">Profundidade (CM):</label>
+                <input type="text" class="form-control" name="ptd_depth" id="ptd_depth" value="{ptd_depth}">
+            </div>
+
+            <div class="mb-3 col-md-2">
+                <label for="ptd_weight" class="form-label ">Peso em (G):</label>
+                <input type="text" class="form-control" name="ptd_weight" id="ptd_weight" value="{ptd_weight}">
+            </div>
+
+        </main>
+
+        <aside class="bg-light">
+            <div class="mb-3 bg-light ">
+                <label for="ptd_image" class="form-label bg-light">Capa: <div class="bg-light" id="nameImage"> </div></label>
+                <input type="file" class="form-control bg-light" name="ptd_image" id="ptd_image" value="{ptd_image}">
+            </div>
+
+
+            <div class="bg-white" id="image"></div>
+
+
+            <div class="mb-3 ">
+                <p class="titulo"> Preço de Venda:</p>
+                <label for="ptd_price_full" class="form-label">Preço Cheio R$:</label>
+                <input type="text" class="form-control" name="ptd_price_full" id="ptd_price_full" value="{ptd_price_full}">
+            </div>
+
+            <div class="mb-3 ">
+                <p class="titulo"> Configurar Promoção:</p>
+                <label for="ptd_descont" class="form-label">Porcentagem de Desconto (%):</label>
+                <input type="text" class="form-control" name="ptd_descont" id="ptd_descont" value="{ptd_descont}">
+            </div>
+
+            <div class="mb-3 ">
+                <label for="ptd_price_alter" class="form-label">Preço Promocional R$: (0,00) </label>
+                <input type="text" class="form-control" name="ptd_price_alter" id="ptd_price_alter" value="{ptd_price_alter}">
+            </div>
+
+            <div class="mb-3 ">
+                <label for="ptd_desc_ini_date" class="form-label">Inicio da Promoção </label>
+                <input type="text" class="form-control jwc_datepicker" name="ptd_desc_ini_date" readonly data-timepicker="true" id="ptd_desc_ini_date" value="{ptd_desc_ini_date}">
+            </div>
+
+            <div class="mb-3 ">
+                <label for="ptd_desc_final_date" class="form-label">Fim da Promoção</label>
+                <input type="text" class="form-control jwc_datepicker" readonly data-timepicker="true" name="ptd_desc_final_date" id="ptd_desc_final_date" value="{ptd_desc_final_date}">
+            </div>
+
+            <div class="mb-3">
+                <label for="ptd_stock" class="form-label fw-bold">ESTOQUE:</label>
+                <input type="text" class="form-control" name="ptd_stock" id="ptd_stock" value="{ptd_stock}">
+            </div>
+
+            <label class="actions">
+                <a href="index.php?class=CompanyList" class="btn btn-dark">
+                    <img src='images/icons8-cancel-50.svg' style='width:25px'>
+                    VOLTAR</a>
+
+                <button class='btn btn-dark' type='submit'>
+                    <img src='images/icons8-settings-50.svg' style='width:25px'>
+                    SALVAR
+                </button>
+            </label>
+        </aside>
+    </form>
+
+
+
+
+    </div>
+    <script src="js/maskinput.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/scriptzin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listagem de Pessoas</title>
+    <link rel="stylesheet" href="_css/form.css">
+   <!-- <link rel="stylesheet" href="_css/table.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="list">
+    <table>
+        <thead>
+        <tr class="header">
+            <th class='center'><img src='images/icons8-edit-50.svg' style='width:25px'></th>
+            <th class='center'><img src='images/icons8-trash-can-50.svg' style='width:25px'></th>
+            <th>ID.</th>
+            <th>Nome</th>
+            <th>Fantasia</th>
+            <th>Cnpj</th>
+            <th>CEP</th>
+            <th>Endereço</th>
+            <th>Numero</th>
+            <th>Bairro</th>
+            <th>Telefone</th>
+            <th>E-Mail</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+
+           
+        </tr>
+        </thead>
+        <tbody>
+        {rows}
+        </tbody>
+    </table>
+    <button onclick="window.location='index.php?class=CompanyForm'" class="btn btn-ligth-gray">
+        <img src='images/icons8-settings-50.svg' style='width:25px'> Inserir
+    </button>
+</section>
+</body>
+</html>

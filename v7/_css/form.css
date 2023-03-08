@@ -1,0 +1,119 @@
+
+form {
+    background-color: #F1F1F1;
+    border: 2px solid #D9D7D7;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+label{
+    margin: 10px 5px;
+}
+label > span{
+    color: #777777;
+    padding: 5px;
+    font-size: 0.875rem;
+}
+
+input, select, textarea {
+    border-radius: 4px;
+    border: 1px solid #D9D7D7;
+    padding: 12px;
+    width: 100%;
+    
+}
+input:focus, select:focus, textarea:focus,
+.output:focus,input:not([readonly]):focus {
+    border: 1px solid #08AAC7;
+    box-shadow: 0px 0px 3px 5px #8CDEEA;
+}
+
+input[readonly] {
+    background: #E0E0E0;
+    border: 1px solid #B0B0B0;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #555555;
+    color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2), inset 0px 0px 6px 2px rgba(0, 0, 0, 0.15);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 10px !important;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    clear: both;
+    text-decoration: none !important;
+    
+}
+.uppercase{text-transform: uppercase !important;}
+.lowercase{text-transform: lowercase !important;}
+.img-icon{
+    width: 25px;
+}
+
+.btn > img {
+    margin-right: 8px;
+}
+.btn-icon > img{
+    margin: 0 !important;
+    
+}
+
+.btn-large {
+    padding: 12px 22px;
+    font-size: 1.2em;
+}
+
+.btn-xlarge {
+    padding: 16px 24px;
+    font-size: 1.4em;
+}
+
+.btn-green {
+    background: #2CA242;
+    border: 1px solid #2CC046;
+}
+
+.btn-ligth-gray {
+    background: #EAEAEA;
+    border: 2px solid #BE7AFA;
+    color: #2A2A2A;
+    transition: all ease-in-out .5s;
+}
+
+.btn-ligth-gray:hover {
+    background: #2A2A2A;
+    border: 2px solid #BE7AFA;
+    color: #BE7AFA;
+    transition: all ease-in-out .5s;
+}
+
+.trigger {
+    width: 80%;
+    margin: 20px auto;
+    padding: 12px;
+    text-align: center;
+    transition: all ease-in-out;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1), inset 0 0 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.trigger-sucess {
+    border: 2px solid #608D67;
+    background-color: #B2ECBB;
+    color: #2A2A2A;
+}
+
+.trigger-error {
+    border: 2px solid #EA2A3C;
+    background-color: rgba(253, 66, 77, 0.74);
+    color: #2A2A2A;
+}

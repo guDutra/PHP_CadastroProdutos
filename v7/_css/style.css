@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#Formulario {
+    width: 1000px;
+    margin-left: 40px;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+main {
+    width: 650px;
+    margin-right: 10px;
+}
+
+aside {
+    width:  300px;
+    margin-left: 10px;
+    margin-top: -30px;
+    padding: 15px;
+    border-radius: 20px;
+    
+}
+
+#image {
+    margin-bottom: 15px;
+}
+
+#ptd_description {
+        resize: none;
+    }
+
+    .corpo {
+        background-color: #edede9;
+    }
+
+    .Form1 {
+        width: 800px;
+        margin-left: 40px;
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+#tela {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#Form2 {
+    width: 300px;
+}
+
+
+#image {
+
+    width: 100%;
+    height: 500px;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: 800;
+  
+}
