@@ -6,41 +6,11 @@ class Product
 
     private static $conn;
 
-   
 
 
-   /* $getPost = filter_input(INPUT_GET, 'post', FILTER_VALIDATE_BOOLEAN);
 
-    if ($_FILES && !empty($_FILES['file']['name'])) {
-        var_dump($_FILES);
-        $fileUpload = $_FILES['file'];
-        var_dump($fileUpload);
-    
-    
-        $allowedTypes = [
-            'image/jpg',
-            'image/jpeg',
-            'image/png',
-            'application/pdf'
-        ];
-    
-        $newFileName = time() . mb_strstr($fileUpload['name'], '.');
-    
-        if (in_array($fileUpload['type'], $allowedTypes)) {
-            if (move_uploaded_file($fileUpload['tmp_name'], __DIR__ . "/uploads/{$newFileName}")) {
-                echo "<p class='trigger accept'> Arquivo enviado com  sucesso</p>";
-            } else {
-                echo "<p class='trigger error'> Erro inesperado</p>";
-            }
-        } else {
-            echo "<p class='trigger warning'> Tipo de arquivo não permitido </p>";
-        }
-    } elseif ($getPost) {
-        echo "<p class='trigger warning'> Parece que o arquivo é mt grande </p>";
-    } else {
-        echo "<p class='trigger warning'> Selecione um arquivo antes de enviar!</p>";
-    }*/
-    
+
+
 
     public static function getConnection()
     {
@@ -67,19 +37,19 @@ class Product
 
         $person['ptd_desc_ini_date'] =   $person['ptd_desc_ini_date'] ? DataHelper::Data($person['ptd_desc_ini_date']) : null;
         $person['ptd_desc_final_date'] = $person['ptd_desc_final_date'] ? DataHelper::Data($person['ptd_desc_final_date']) : null;
-        $person['ptd_price_full'] =   DataHelper::InsereMoeda($person['ptd_price_full']) ;
-        $person['ptd_price_alter'] =   DataHelper::InsereMoeda($person['ptd_price_alter']) ;
-       
+        $person['ptd_price_full'] =   DataHelper::InsereMoeda($person['ptd_price_full']);
+        $person['ptd_price_alter'] =   DataHelper::InsereMoeda($person['ptd_price_alter']);
+
         $ptd_image =  ProductForm::PegaURLimage();
         $person['ptd_image'] = $ptd_image;
- 
+
         $conn = self::getConnection();
         if (empty($person['pdt_id'])) {
             $result = $conn->query("SELECT max(pdt_id) as next FROM product");
             $row = $result->fetch();
             $person['pdt_id'] = (int)$row['next'] + 1;
-           // $person['ptd_image'] = 'imagem_null';
-           // var_dump($person);
+            // $person['ptd_image'] = 'imagem_null';
+            // var_dump($person);
 
             $sql = "INSERT INTO product
                                     ( 
@@ -96,6 +66,7 @@ class Product
                   ptd_weight ,
                   ptd_price_full ,
                   ptd_descont ,
+                  
                   ptd_price_alter ,
                   ptd_desc_ini_date ,
                    ptd_desc_final_date ,
@@ -116,6 +87,7 @@ class Product
                                       :ptd_weight ,
                                       :ptd_price_full ,
                                       :ptd_descont ,
+                                     
                                       :ptd_price_alter ,
                                        :ptd_desc_ini_date,
                                         :ptd_desc_final_date ,
@@ -127,7 +99,7 @@ class Product
 
             $sql = "UPDATE product SET ptd_name = :ptd_name, ptd_description=:ptd_description, ptd_tags = :ptd_tags, ptd_link_alt = :ptd_link_alt, ptd_code = :ptd_code,
                  ptd_image = :ptd_image, ptd_height = :ptd_height, ptd_length= :ptd_length, ptd_depth = :ptd_depth,
-                 ptd_weight = :ptd_weight, ptd_price_full = :ptd_price_full, ptd_descont = :ptd_descont, ptd_price_alter = :ptd_price_alter,
+                 ptd_weight = :ptd_weight, ptd_price_full = :ptd_price_full, ptd_descont = :ptd_descont,  ptd_price_alter = :ptd_price_alter,
                  ptd_desc_ini_date = :ptd_desc_ini_date, ptd_desc_final_date = :ptd_desc_final_date, ptd_stock= :ptd_stock, ptd_category_id = :ptd_category_id
                  ptd_brand_id = :ptd_brand_id, ptd_unit_id = :ptd_unit_id WHERE pdt_id = :pdt_id ";
         }
@@ -149,6 +121,7 @@ class Product
                 ':ptd_weight' =>  $person['ptd_weight'],
                 ':ptd_price_full' =>  $person['ptd_price_full'],
                 ':ptd_descont' => $person['ptd_descont'],
+
                 ':ptd_price_alter'   => $person['ptd_price_alter'],
                 ':ptd_desc_ini_date' =>  $person['ptd_desc_ini_date'],
                 ':ptd_desc_final_date' =>  $person['ptd_desc_final_date'],
@@ -172,7 +145,7 @@ class Product
         $conn = self::getConnection();
         $result = $conn->query("SELECT * FROM product WHERE pdt_id='{$id}'");
 
-        return $result->fetch();
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 
     public static function delete($id)

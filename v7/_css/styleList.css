@@ -1,0 +1,5 @@
+    .company-box {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 1000px;
+    }

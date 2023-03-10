@@ -1,5 +1,38 @@
 $(function () {                     
 
+    $('.wc_loadimage').change(function () {
+        var input = $(this);
+        var target = $('.' + input.attr('name'));
+        var fileDefault = target.attr('default');
+
+        if (!input.val()) {
+            target.fadeOut('fast', function () {
+                $(this).attr('src', fileDefault).fadeIn('slow');
+            });
+            return false;
+        }
+
+        if (this.files && (this.files[0].type.match("image/jpeg") || this.files[0].type.match("image/png"))) {
+            TriggerClose();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                target.fadeOut('fast', function () {
+                    $(this).attr('src', e.target.result).width('auto').fadeIn('fast');
+                    //$(this).attr('src', e.target.result).width('100%').fadeIn('fast');
+                });
+            };
+            reader.readAsDataURL(this.files[0]);
+        } else {
+            Trigger('<div class="trigger trigger_alert trigger_ajax"><b class="icon-warning">ERRO AO SELECIONAR:</b> O arquivo <b>' + this.files[0].name + '</b> não é válido! <b>Selecione uma imagem JPG ou PNG!</b></div>');
+            target.fadeOut('fast', function () {
+                $(this).attr('src', fileDefault).fadeIn('slow');
+            });
+            input.val('');
+            return false;
+        }
+    });
+
+
     //############## GET CNPJ + Validando com function validarCNPJ
     $('.wc_getCnpj').on('blur', function () {
         if (!validarCNPJ(this.value)) {
@@ -76,6 +109,13 @@ $(function () {
 
     /*############## DATEPICKER*/
    
+
+
+
+
+
+
+
    const BASE = window.location.origin + window.location.pathname.substring(window.location.pathname.indexOf('index.php'),0);
   
 
@@ -93,11 +133,11 @@ $(function () {
         });
     }
 
-   /* if ($('.trigger-sucess').length) {
+    if ($('.trigger-sucess').length) {
         setTimeout(function (){
-            window.location.href= 'index.php?class=CompanyList';
+            window.location.href= 'index.php?class=ProductList';
         }, 2000);
-    }*/
+    }
 
     /*############## WC TAB  CUSTOM BY ALISSON*/
     $('html').on('click', '#company_tab', function () {
@@ -340,3 +380,6 @@ function ContagemCaracter() {
     console.log(contador);
     console.log(txtDC);
 }
+
+
+

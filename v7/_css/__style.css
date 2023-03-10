@@ -7,6 +7,14 @@
     outline: none;
 }
 
+
+.card-img-top {
+    width: 450px;
+    height: 420px;
+    margin: auto;
+}
+
+
 body {
     padding: 50px 0;
     background-color: #FFFFFF;

@@ -9,6 +9,31 @@ $(".contador").on("keyup click", function () {
    /// console.log(caracteresRestantes);
 });
 
+$("#ptd_descont").on("change", function(){
+
+    
+    var precoTotal = $("#ptd_price_full").val();
+    var IntporcentagemDesconto = $("#ptd_descont").val();
+    var precoComDesconto = $("#ptd_price_alter");
+    var IntprecoComDesconto = parseInt($("#ptd_price_alter").val());
+    IntprecoComDesconto = IntporcentagemDesconto*precoTotal/100;
+    var PrecoFinalDesc = precoTotal-IntprecoComDesconto;
+    $('#ptd_price_alter').attr('value', PrecoFinalDesc);
+});
+
+$("#ptd_price_alter").on("change", function(){
+
+    
+    var precoTotal = $("#ptd_price_full").val();
+    var IntporcentagemDesconto = $("#ptd_descont").val();
+    var precoComDesconto = $("#ptd_price_alter");
+    var IntprecoComDesconto = parseInt($("#ptd_price_alter").val());
+    IntprecoComDesconto = IntporcentagemDesconto*precoTotal/100;
+    var PrecoFinalDesc = precoTotal-IntprecoComDesconto;
+    $('#ptd_price_alter').attr('value', PrecoFinalDesc);
+});
+
+
 /*$("form").on("submit", function (event)) {
     event.preventDefault();
     console.log($(this).serialize());

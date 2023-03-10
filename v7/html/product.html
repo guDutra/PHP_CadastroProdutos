@@ -1,0 +1,46 @@
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="_css/styleList.css">
+
+</head>
+<article class="grow1 company-box">
+  <div class="card bg-light" style="width: 400px;">
+    <img src="http://localhost:8080/v7-Produto/v7{ptd_image}" class="card-img-top" alt="imagem do produto">
+    <div class="card-body">
+
+
+      <h5 class="card-title">{ptd_name}</h5>
+      <p class="card-text">{ptd_description}</p>
+      <p class="card-text" style="display: none;">{pdt_id}</p>
+      <ul class="list-group list-group-flush" style="margin-bottom: 10px;">
+        <li class="list-group-item"> De: {ptd_price_full}</li>
+        <li class="list-group-item">Para apenas: {ptd_price_alter}</li>
+        <li class="list-group-item">Disponiveis: {ptd_stock}</li>
+      </ul>
+      <a class="btn btn-ligth-gray btn-icon" href='index.php?class=ProductForm&method=edit&id={pdt_id}'>
+        <img class="img-icon" src="images/icons8-edit-50.svg" alt="img-icon">
+      </a>
+
+      <a class="btn btn-ligth-gray btn-icon" href='index.php?class=ProductList&method=delete&id={pdt_id}'>
+        <img class="img-icon" src="images/icons8-trash-can-50.svg" alt="img-trash-icon">
+      </a>
+    </div>
+  </div>
+
+
+</article>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+  integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
