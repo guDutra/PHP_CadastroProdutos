@@ -34,7 +34,7 @@
 
             <div class="mb-3">
                 <label for="ptd_id" class="form-label">ID do Produto</label>
-                <input type="text" class="form-control" readonly id="ptd_id" name="ptd_id">
+                <input type="text" class="form-control" readonly id="pdt_id" name="pdt_id" value="{pdt_id}">
             </div>
 
             <div class="mb-3">
@@ -47,7 +47,7 @@
                 <label for="ptd_description" class="form-label">Descrição (máximo 250 caractéres)</label>
                 restam <span class="badge fs-6 spanTXT  text-bg-secondary">250</span>
                 <textarea maxlength="250" class="form-control contador caracteres" name="ptd_description"
-                    id="ptd_description" value="{ptd_description}" rows="3"></textarea>
+                    id="ptd_description" rows="3">{ptd_description}</textarea>
             </div>
 
             <div class="mb-3">
@@ -121,7 +121,7 @@
         <aside class="bg-light">
             <div class="mb-3 bg-light ">
                 <label for="ptd_image" class="form-label bg-light">Capa: <div class="bg-light" id="nameImage"> </div>
-                    </label>
+                </label>
                 <input type="file" class="wc_loadimage form-control bg-light" name="ptd_image" id="ptd_image"
                     value="{ptd_image}">
             </div>

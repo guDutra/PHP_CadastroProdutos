@@ -68,3 +68,14 @@ aside {
     font-weight: 800;
 
 }
+
+.company-box {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+
+.card {
+    width: 400px;
+}

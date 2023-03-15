@@ -1,5 +1,29 @@
     .company-box {
         display: flex;
         flex-wrap: nowrap;
-        width: 1000px;
+        width: 400px;
+    }
+
+    .flex-box {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+        
+    }
+
+
+    .card {
+        width: 450px;
+        height: 600px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    #imageCard {
+        height: 370px;
+        width: 370px;
     }

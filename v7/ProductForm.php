@@ -1,14 +1,11 @@
 <?php
 
 require_once __DIR__ . '/classes/Product.php';
-
+require_once __DIR__  . '/config/config.php';
 class ProductForm
 {
     private $html;
     private $data;
-
-
-
 
     public function __construct()
     {
@@ -75,12 +72,18 @@ class ProductForm
     {
 
         try {
-
+            /// var_dump($param);
             $id = (int)$param['id'];
-
+            /// var_dump($id);
             $product = Product::find($id);
+            $product['ptd_desc_ini_date'] = date(DATE_BR, strtotime($product['ptd_desc_ini_date']));
+            $product['ptd_desc_final_date'] = date(DATE_BR, strtotime($product['ptd_desc_final_date']));
+            $product['ptd_image'] = BASE .  $product['ptd_image'];
+            var_dump( $product['ptd_image']);
+
             $this->data = $product;
-            var_dump($this->data);
+            
+           
         } catch (Exception $e) {
             print $e->getMessage();
         }
@@ -101,8 +104,28 @@ class ProductForm
 
     public function show()
     {
+        if ($this->data['pdt_id'] <= 0) {
+            $this->data['ptd_brand_id'] =  Product::optionsBrands();
+        } else {
+            $this->data['ptd_brand_id'] = Product::optionsBrandsEdit($this->data['pdt_id']);
+        }
+
+        if ($this->data['pdt_id'] > 0) {
+            $this->data['ptd_unit_id'] = Product::optionsUnitEdit($this->data['pdt_id']);
+        } else {
+            $this->data['ptd_unit_id'] = Product::optionsUnit();
+        }
+
+        if ($this->data['pdt_id'] > 0) {
+            $this->data['pdt_category_id'] = Product::optionsCategoriesEdit($this->data['pdt_id']);
+        } else {
+            $this->data['pdt_category_id'] = Product::optionsCategories();
+        }
+       
+        
 
         $this->html = str_replace(
+
             [
                 '{pdt_id}',
                 '{ptd_name}',
@@ -134,7 +157,7 @@ class ProductForm
                 $this->data['ptd_tags'],
                 $this->data['ptd_link_alt'],
                 $this->data['ptd_code'],
-                (!empty($this->data['ptd_image']) ?: 'http://localhost:8080/v7-Produto/v7/images/fundo.jpg'),
+                $this->data['ptd_image'] ?: 'http://localhost:8080/v7-Produto/v7/images/fundo.jpg',
                 $this->data['ptd_height'],
                 $this->data['ptd_length'],
                 $this->data['ptd_depth'],
@@ -142,17 +165,22 @@ class ProductForm
                 $this->data['ptd_price_full'],
                 $this->data['ptd_descont'],
                 $this->data['ptd_price_alter'],
+                
                 $this->data['ptd_desc_ini_date'],
                 $this->data['ptd_desc_final_date'],
                 $this->data['ptd_stock'],
-                Product::optionsUnit(),
-                Product::optionsCategories(),
-                Product::optionsBrands()
+
+                $this->data['ptd_unit_id'],
+                $this->data['pdt_category_id'],
+                $this->data['ptd_brand_id']
 
 
             ],
+
             $this->html
         );
+
+        // var_dump($this->data['ptd_brand_id']);
 
         //$this->html = str_replace($search, $this->data, $this->html);
 
